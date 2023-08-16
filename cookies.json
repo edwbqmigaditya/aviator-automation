@@ -1,0 +1,38 @@
+{
+  "cookies": [
+    {
+      "name": "G_AUTHUSER_H",
+      "value": "0",
+      "domain": ".geu-ip-edw-assessment-day0.ue.r.appspot.com",
+      "path": "/",
+      "expires": -1,
+      "size": 13,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameParty": false,
+      "sourceScheme": "Secure",
+      "sourcePort": 443
+    },
+    {
+      "name": "G_ENABLED_IDPS",
+      "value": "google",
+      "domain": ".geu-ip-edw-assessment-day0.ue.r.appspot.com",
+      "path": "/",
+      "expires": 1726554269.455781,
+      "size": 20,
+      "httpOnly": false,
+      "secure": true,
+      "session": false,
+      "sameParty": false,
+      "sourceScheme": "Secure",
+      "sourcePort": 443
+    }
+  ],
+  "localStorageData": {
+    "orgs": "[]",
+    "user": "{\"id\":\"101564928290328165730\",\"email\":\"aditya.alkhaniya@hcl.com\",\"verified_email\":true,\"name\":\"Aditya Alkhaniya\",\"given_name\":\"Aditya\",\"family_name\":\"Alkhaniya\",\"picture\":\"https://lh3.googleusercontent.com/a/AAcHTtfpCxouxmdPZ_RmgMmkq0rL8BSISUQV2I71lj_gqLvO=s96-c\",\"locale\":\"en\",\"hd\":\"hcl.com\"}",
+    "prjs": "[{\"projectNumber\":\"996825917807\",\"projectId\":\"geu-ip-edw-migration-day0\",\"lifecycleState\":\"ACTIVE\",\"name\":\"geu-ip-edw-migration-day0\",\"createTime\":\"2023-01-06T14:36:50.627Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"92126689902\",\"projectId\":\"geu-ip-edw-assessment-day0\",\"lifecycleState\":\"ACTIVE\",\"name\":\"geu-ip-edw-assessment-day0\",\"createTime\":\"2023-01-06T14:35:52.753Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"130551324266\",\"projectId\":\"alkhaniya-project\",\"lifecycleState\":\"ACTIVE\",\"name\":\"alkhaniya-Project\",\"createTime\":\"2022-02-07T10:32:13.490Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"289649376723\",\"projectId\":\"gebu-data-ml-day0-01-333910\",\"lifecycleState\":\"ACTIVE\",\"name\":\"gebu-data-ml-day0-01\",\"labels\":{\"coe\":\"gcp_billing\",\"firebase\":\"enabled\"},\"createTime\":\"2021-12-02T10:18:11.956Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}}]",
+    "OAUTH": "{\"token_type\":\"Bearer\",\"access_token\":\"ya29.a0AfB_byAFEX6bBs1oZblgr1wzwh0kOy8QxKVtAy_-S6bzVhCWse8XiryNv3h5N_UNeDZlFLrdF1H8Hryybylyi5edrtO4tJt--SOq9kp7OvjW_ufu5s3WUXrDwN1gOVyaOzIGIe3DBQ6aftuwPBfAn2orD29eFXkaCgYKAR8SARISFQHsvYlshbD8fmnzgZXpJdc8iCqoaA0166\",\"scope\":\"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/bigquery https://www.googleapis.com/auth/cloud-platform.read-only openid\",\"login_hint\":\"AJDLj6KmyFNr_33ozRYgr9B2XqNNUsHRyW5_uOVg4eJT3qOFF1YiKAeXE9SyJWLgpRH5bHnZrDKWLP9o4V0LyzmuEWTH6Qu8JvtQ8vjQsc1f87N3u-PYyDW_0GX5-81vKyC5RWybhHRh\",\"expires_in\":3599,\"id_token\":\"eyJhbGciOiJSUzI1NiIsImtpZCI6IjdjOWM3OGUzYjAwZTFiYjA5MmQyNDZjODg3YjExMjIwYzg3YjdkMjAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiOTk2ODI1OTE3ODA3LThkZXB2NnJybHBsZmY5cGg2YTBjdTlwdTU2cTlhbzB1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiOTk2ODI1OTE3ODA3LThkZXB2NnJybHBsZmY5cGg2YTBjdTlwdTU2cTlhbzB1LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxNTY0OTI4MjkwMzI4MTY1NzMwIiwiaGQiOiJoY2wuY29tIiwiZW1haWwiOiJhZGl0eWEuYWxraGFuaXlhQGhjbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IjRtc3RGbjJZODhCUHdwaXhfZHNmX3ciLCJuYmYiOjE2OTE5OTQwMTYsIm5hbWUiOiJBZGl0eWEgQWxraGFuaXlhIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZwQ3hvdXhtZFBaX1JtZ01ta3Ewckw4QlNJU1VRVjJJNzFsal9ncUx2Tz1zOTYtYyIsImdpdmVuX25hbWUiOiJBZGl0eWEiLCJmYW1pbHlfbmFtZSI6IkFsa2hhbml5YSIsImxvY2FsZSI6ImVuIiwiaWF0IjoxNjkxOTk0MzE2LCJleHAiOjE2OTE5OTc5MTYsImp0aSI6IjM0YjM0ZGVjM2E5ODFiYjAyOTk3NmFlMmVjZWVhYTM0MGY0NzVkMjkifQ.hS8gG4vIGGUyCCpFaBW_dg47FV1I3ww_X3MNv2JCIz2_zch5T--Xy3wtyJ6bMHuMJK_fX0hfJ8Sr3dTruNcjwuw_vuTRP46jW0ykOCbD-An46mFpLYy6j4aQPt2cDPROFVipYx4c6MfchzVKSsKq2A_VjFr2jsBPW1HZk-Ogo6p7TJeytVVdwNnAf25XbUJVHCSZiPtGL1xE9GNz7yS455V5_vYJkTJHvxXbTCcmiERs0_Kxbt_Ua8hnTX-7MPNu0TaZI75sMAFFfaN9m3g6W2cGZ3QwUGP0_GKVoVp3YNdFuYm7hxPM1FAQemRp3UeKxK2PDaXxcfiSL1PnhdZEaQ\",\"session_state\":{\"extraQueryParams\":{\"authuser\":\"0\"}},\"first_issued_at\":1691994315225,\"expires_at\":1691997914225,\"idpId\":\"google\"}"
+  }
+}
