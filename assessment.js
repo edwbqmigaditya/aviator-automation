@@ -39,7 +39,7 @@ function delay(time) {
     page3.goto("https://34.30.140.26:8432/docs"),
     page4.goto("http://34.68.217.240:8000/docs"),
     page5.goto("https://34.70.185.253:8432/docs"),
-    page6.goto("https://34.28.83.153:8432/docs"),
+    // page6.goto("https://34.28.83.153:8432/docs"),
   ];
 
   Promise.all(arr).then(() => {
@@ -180,8 +180,17 @@ function delay(time) {
 
 
 
+  const host = "34.70.185.253";
   
+  const inputSelector = '[placeholder="Enter host name"]';
   
+  await page.evaluate((selector) => {
+    document.querySelector(selector).value = '';
+  }, inputSelector);
+  await page.type(inputSelector, host);
+
+
+  await delay(20000)
   
   const [runAssessmentElement] = await page.$x('//span[contains(text(), "Run Assessment")]');
   if (runAssessmentElement) {
