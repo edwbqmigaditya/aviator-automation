@@ -183,7 +183,7 @@ function delay(time) {
 
 
 
-  const host = "34.70.185.253";
+  const host = "34.171.176.139";
   
   const inputSelector = '[placeholder="Enter host name"]';
   
