@@ -127,18 +127,21 @@ function delay(time) {
 
   await delay(5000);
 
-  const [sqlMigrationButton] = await page.$x(
-    '//span[contains(text(), "Start New Migration")]'
-  );
+  // const [sqlMigrationButton] = await page.$x(
+  //   '//span[contains(text(), "Start New Migration")]'
+  // );
 
-  if (sqlMigrationButton) {
-    await sqlMigrationButton.click();
-    console.log(
-      "Clicked on the element with ' Start New Migration ' as inner text."
-    );
-  } else {
-    console.error("Element with ' Start New Migration ' not found.");
-  }
+  // if (sqlMigrationButton) {
+  //   await sqlMigrationButton.click();
+  //   console.log(
+  //     "Clicked on the element with ' Start New Migration ' as inner text."
+  //   );
+  // } else {
+  //   console.error("Element with ' Start New Migration ' not found.");
+  // }
+
+  await delay(3000)
+  await page.click("a");
 
   await delay(3000);
 
