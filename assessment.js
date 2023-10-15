@@ -10,7 +10,6 @@ function delay(time) {
 }
 
 (async () => {
-  // Launch a headless browser
   const browser = await puppeteer.launch({
     ignoreHTTPSErrors: true,
     args: ["--disable-web-security", "--ignore-certificate-errors"],
@@ -18,20 +17,15 @@ function delay(time) {
     defaultViewport: null,
   });
 
-  // Create a new page with increased width and height
   const page = await browser.newPage();
   await page.goto("https://geu-ip-edw-assessment-day0.ue.r.appspot.com");
 
   const page1 = await browser.newPage();
   const page2 = await browser.newPage();
-
   const page3 = await browser.newPage();
-
   const page4 = await browser.newPage();
-
   const page5 = await browser.newPage();
-
-    const page6 = await browser.newPage();
+  const page6 = await browser.newPage();
 
   const arr = [
     page1.goto("https://34.121.80.106:8432/docs"),
@@ -39,7 +33,7 @@ function delay(time) {
     page3.goto("https://34.30.140.26:8432/docs"),
     page4.goto("http://34.68.217.240:8000/docs"),
     page5.goto("https://34.70.185.253:8432/docs"),
-    // page6.goto("https://34.28.83.153:8432/docs"),
+    page6.goto("https://34.28.83.153:8432/docs"),
   ];
 
   Promise.all(arr).then(() => {
@@ -57,18 +51,15 @@ function delay(time) {
   });
   await page.bringToFront();
 
-  // Check if the cookies file exists and has data
   if (fs.existsSync(COOKIES_FILE_PATH)) {
     const data = fs.readFileSync(COOKIES_FILE_PATH, "utf8");
     const { cookies, localStorageData } = JSON.parse(data);
     if (Array.isArray(cookies) && cookies.length > 0) {
-      // Set the cookies for the page
       await page.setCookie(...cookies);
       console.log("Cookies loaded from the file.");
     }
 
     if (localStorageData) {
-      // Inject custom JavaScript to set the local storage data
       await page.evaluate((localStorageData) => {
         for (const key in localStorageData) {
           localStorage.setItem(key, localStorageData[key]);
@@ -78,17 +69,10 @@ function delay(time) {
       console.log("Local storage data loaded from the file.");
     }
   }
-  // Navigate to the URL
-
-  // Wait for the page to load completely (you can adjust the timeout as needed)
-  //   await page.waitForNavigation({ waitUntil: 'networkidle0' });
-
-  // Check if the cookies file exists and has data
 
   const spanElement = await page.$x("//span[contains(text(), 'Launch Tool')]");
 
   await page.setDefaultNavigationTimeout(600000);
-  // If the span element is found, click on it
   if (spanElement.length > 0) {
     await spanElement[0].click();
     console.log("Clicked on the 'Launch Tool' span element.");
@@ -96,17 +80,14 @@ function delay(time) {
     console.log("Could not find the 'Launch Tool' span element.");
   }
 
-  // Wait for the page to complete navigation (including any redirects)
   await page.waitForNavigation({ waitUntil: "networkidle0" });
 
-  // At this point, the page has completed navigation (including any redirects)
   console.log("Page has finished navigating.");
 
   // Get the cookies after login
   const currentCookies = await page.cookies();
   console.log("Logged-in Cookies:", currentCookies);
 
-  // At this point, the page has completed navigation (including any redirects)
   console.log("Page has finished navigating.");
   const currentLocalStorageData = await page.evaluate(() => {
     const data = {};
@@ -125,22 +106,8 @@ function delay(time) {
   fs.writeFileSync(COOKIES_FILE_PATH, JSON.stringify(dataToSave, null, 2));
   console.log("Cookies and local storage data saved to file.");
 
-  await delay(5000);
+  await delay(7000);
 
-  // const [sqlMigrationButton] = await page.$x(
-  //   '//span[contains(text(), "Start New Migration")]'
-  // );
-
-  // if (sqlMigrationButton) {
-  //   await sqlMigrationButton.click();
-  //   console.log(
-  //     "Clicked on the element with ' Start New Migration ' as inner text."
-  //   );
-  // } else {
-  //   console.error("Element with ' Start New Migration ' not found.");
-  // }
-
-  await delay(3000)
   await page.click("a");
 
   await delay(3000);
@@ -180,22 +147,20 @@ function delay(time) {
 
   await page.waitForNavigation({ waitUntil: "networkidle0" });
 
-
-
-
   const host = "34.171.176.139";
-  
+
   const inputSelector = '[placeholder="Enter host name"]';
-  
+
   await page.evaluate((selector) => {
-    document.querySelector(selector).value = '';
+    document.querySelector(selector).value = "";
   }, inputSelector);
   await page.type(inputSelector, host);
 
+  await delay(20000);
 
-  await delay(20000)
-  
-  const [runAssessmentElement] = await page.$x('//span[contains(text(), "Run Assessment")]');
+  const [runAssessmentElement] = await page.$x(
+    '//span[contains(text(), "Run Assessment")]'
+  );
   if (runAssessmentElement) {
     await runAssessmentElement.click();
     console.log("Clicked on the element with 'Run Assessment' as inner text.");

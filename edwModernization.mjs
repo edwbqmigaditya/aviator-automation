@@ -44,7 +44,6 @@ export const edwModernization = async (page) => {
   );
   await delay(1000);
 
-  // If the h2 element is found, click on it
   if (h2Element.length > 0) {
     await h2Element[0].click();
     console.log("Clicked on the 'EDW Modernization' h2 element.");
@@ -94,34 +93,23 @@ export const edwModernization = async (page) => {
   }
 
   await delay(3000);
+  await page.evaluate(() => {
+    const button = document.getElementsByClassName(
+      "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+    )[0];
 
-  // const [modernizeElement] = await page.$x(
-  //   '//span[contains(text(), "Modernize")]'
-  // );
+    if (button) button.click();
+  });
+  await delay(5000);
 
   await page.evaluate(() => {
     const button = document.getElementsByClassName(
       "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
     )[0];
 
-    if(button) button.click()
-  });
-await delay(5000)
-
-  await page.evaluate(() => {
-    const button = document.getElementsByClassName(
-      "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-    )[0];
-
-    if(button) button.click()
+    if (button) button.click();
   });
 
-  // if (modernizeElement) {
-  //   await modernizeElement.click();
-  //   console.log("Clicked on the element with 'Modernize' as inner text.");
-  // } else {
-  //   console.error("Element with 'Modernize' not found.");
-  // }
 
   await delay(3000);
 

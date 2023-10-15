@@ -9,28 +9,21 @@ function delay(time) {
 async function refreshStatusFunction(page) {
   console.log("step 1");
   await delay(3000);
-  // An array to store the final objects for each table
   return await page.evaluate(async function () {
     let final = [];
     console.log("inside page evaluate");
     let tableObjects = [];
 
-    // Select all tables with the class "job-table"
     let tableElements = document.getElementsByClassName("job-table");
 
-    // Loop through each table
     for (let tableElement of tableElements) {
-      // Select all rows within the current table
       let rows = tableElement.getElementsByTagName("tr");
 
-      // Object to store data for the current table
       let tableData = {};
 
       let d = {};
       let x = [];
-      // Loop through each row
       for (let i = 0; i < rows.length; i++) {
-        // Select all header cells (th) and data cells (td) within the current row
         let headerCells = Array.from(tableElement.getElementsByTagName("th"));
         let dataCells = Array.from(tableElement.getElementsByTagName("td"));
 
@@ -45,12 +38,10 @@ async function refreshStatusFunction(page) {
             dataCells.forEach((el, index) => (d[x[index]] = el.innerText))
           );
         }
-        // Check if the number of header cells matches the number of data cells
       }
 
       final.push(d);
 
-      // Add the tableData object to the array of tableObjects
       tableObjects.push(tableData);
     }
     console.log({ final });
@@ -128,6 +119,7 @@ export const schemaMigrationProcess = async (page) => {
   } else {
     console.error("Element with 'Skip' button not found.");
   }
+  await delay(3000);
 
   await page.evaluate(() => {
     console.log("inside the code for schema migration");
@@ -148,7 +140,6 @@ export const schemaMigrationProcess = async (page) => {
 
   while (planeIconDisabled) {
     await clickDownArrowButton();
-
     page.on("response", async (response) => {
       if (!planeIconDisabled) return;
       const urlToMonitor = "https://34.121.80.106:8432/schemadatajob/2";
@@ -163,8 +154,6 @@ export const schemaMigrationProcess = async (page) => {
         if (url === urlToMonitor && contentType.includes("application/json")) {
           const responseBody = await response.json();
           console.log({ responseBody });
-
-          // Search for a specific job status
           responseBody?.forEach(async (job) => {
             if (
               job.jobType === "Schema Migration" &&
@@ -209,9 +198,7 @@ export const schemaMigrationProcess = async (page) => {
   } else {
     console.error("Element with 'Next' button not found.");
   }
-  await delay(2000);
-
-  await delay(2000);
+  await delay(3000);
 
   const dataTransferInput = await page.$('input[type="file"]');
   console.log(dataTransferInput);
@@ -276,6 +263,3 @@ export const schemaMigrationProcess = async (page) => {
   }
   sqlMigration(page);
 };
-
-//  POST https://104.154.159.171:8432/schematranslation 500
-// https://104.154.159.171:8432/schematranslation

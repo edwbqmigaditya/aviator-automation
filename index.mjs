@@ -1,5 +1,5 @@
-import puppeteer from "puppeteer";
 import fs from "fs";
+import puppeteer from "puppeteer";
 import { schemaMigrationProcess } from "./schema_migration.mjs";
 
 const COOKIES_FILE_PATH = "./cookies.json"; // File path to save cookies
@@ -52,8 +52,8 @@ async function clickDownArrowButton(page) {
     args: ["--disable-web-security", "--ignore-certificate-errors"],
     headless: false,
     defaultViewport: {
-      width: 1366,
-      height: 768,
+      width: 1920,
+      height: 1080,
     },
   });
 
@@ -78,7 +78,7 @@ async function clickDownArrowButton(page) {
     page3.goto("https://34.30.140.26:8432/docs"),
     page4.goto("http://34.68.217.240:8000/docs"),
     page5.goto("https://34.70.185.253:8432/docs"),
-    page6.goto("https://34.28.83.153:8432/docs"),
+    // page6.goto("https://34.28.83.153:8432/docs"),
   ];
 
   Promise.all(arr).then(() => {
@@ -154,16 +154,10 @@ async function clickDownArrowButton(page) {
     cookies: currentCookies,
     localStorageData: currentLocalStorageData,
   };
- 
+
   fs.writeFileSync(COOKIES_FILE_PATH, JSON.stringify(dataToSave, null, 2));
   console.log("Cookies and local storage data saved to file.");
 
-  await page.waitForSelector("a"); // Wait for the first link to be available
-  await page.click("a");
-
-  await page.waitForNavigation({ waitUntil: "networkidle0" });
-
-  // At this point, the page has completed navigation (including any redirects)
   console.log("Page has finished navigating.");
 
   const divElement = await page.$x(
@@ -182,37 +176,45 @@ async function clickDownArrowButton(page) {
       "Could not find the 'Migrate data from Taradata to BigQuery' div element."
     );
   }
+  await delay(1500);
 
-  const h2Element = await page.$x("//h2[contains(text(), 'Migration')]");
-  await delay(1000);
+  const createNewInfraSpanElement = await page.$x(
+    "//span[contains(text(), 'Create a New Infra')]"
+  );
 
-  console.log(h2Element);
-  // If the h2 element is found, click on it
-  if (h2Element.length > 0) {
-    await h2Element[1].click();
-    console.log("Clicked on the 'Migration' h2 element.");
+  console.log(createNewInfraSpanElement);
+
+  if (createNewInfraSpanElement.length > 0) {
+    await createNewInfraSpanElement[0].click();
+    console.log("Clicked on the 'Create a New Infra' div element.");
   } else {
-    console.log("Could not find the 'Migration' h2 element.");
+    console.log("Could not find the 'Create a New Infra' div element.");
   }
 
-  // Assuming the drop-down element has a specific class name
-  const dropDownClassName = ".mat-mdc-autocomplete-panel .mat-mdc-option";
+  await delay(1000);
 
-  await page.waitForNavigation({ waitUntil: "networkidle0" });
+  await page.click('input[formcontrolname="project_id"]');
+  await delay(500)
   await page.evaluate(() => {
-    const element = document.getElementsByClassName(
-      "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c13-2 mat-mdc-form-field-input-control mdc-text-field__input ng-pristine ng-invalid cdk-text-field-autofill-monitored ng-touched"
-    )[0];
-    if (element) {
-      element.click();
+    let elementToClick;
+    const projectNameElements = document.getElementsByClassName('mdc-list-item__primary-text');
+
+    for (const element of projectNameElements) {
+      if (element.innerText === 'geu-ip-edw-migration-day0') {
+        elementToClick = element
+        break;
+      }
+    }
+
+
+    if (elementToClick) {
+      elementToClick.click();
     } else {
-      console.log("Could not find the element for dropdown");
+      console.error("Project name we are searching for not found.");
     }
   });
 
-  await delay(1000);
 
-  // Find the input field by its placeholder text
   const inputField = await page.$(
     'input[placeholder="Please enter bucket name"]'
   );
@@ -244,6 +246,10 @@ async function clickDownArrowButton(page) {
       "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c13-2 mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored"
     )[0];
 
+    console.log("Drop down elemetns ",document.getElementsByClassName(
+      "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c14-17 mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored"
+    ))
+
     console.log("in the drop down selection part");
     if (element) {
       element.click();
@@ -256,16 +262,7 @@ async function clickDownArrowButton(page) {
   // Wait for a short time (if needed) to allow the dropdown to appear and the next element to be available
 
   // Execute the second JavaScript code within the page context after clicking the first element
-  await page.evaluate(() => {
-    const secondElement = document.getElementsByClassName(
-      "mdc-list-item__primary-text"
-    )[0];
-    if (secondElement) {
-      secondElement.click();
-    } else {
-      console.error("Second element not found.");
-    }
-  });
+  
 
   await delay(1000);
 
@@ -295,9 +292,6 @@ async function clickDownArrowButton(page) {
   const buttonElement = await page.$x(
     '//div[contains(text(), "Schema Migration")]'
   )[0];
-  // await isElementPresent(
-  //   "button migration-button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-  // );
 
   console.log({ buttonElement });
   let isDisabled = await checkDisabled(buttonElement);
@@ -356,8 +350,5 @@ async function clickDownArrowButton(page) {
   console.log({ isDisabled }, "3");
 
   schemaMigrationProcess(page);
-  // Do any further interactions or operations on the page here...
 
-  // Close the browser
-  //   await browser.close();
 })();
