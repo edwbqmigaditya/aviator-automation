@@ -9,20 +9,6 @@ function delay(time) {
     setTimeout(resolve, time);
   });
 }
-async function clickDownArrowButton(page) {
-  await page.evaluate(() => {
-    const downArrowElement = document.getElementsByClassName(
-      "expand-icon ng-star-inserted"
-    )[0];
-
-    if (downArrowElement) {
-      downArrowElement.click();
-      console.log(" down arrow element  found and clicked");
-    } else {
-      console.log(" down arrow element not found");
-    }
-  });
-}
 
 (async () => {
   async function checkDisabled(buttonElement) {
