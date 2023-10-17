@@ -25,13 +25,6 @@ function delay(time) {
     }
   }
 
-  async function isElementPresent(selector) {
-    console.log("isElementPresent called!!!!!");
-    return await page.evaluate((sel) => {
-      console.log({ sel }, document.getElementsByClassName(sel)[0]);
-      return !!document.getElementsByClassName(sel)[0];
-    }, selector);
-  }
   // Launch a headless browser
   const browser = await puppeteer.launch({
     ignoreHTTPSErrors: true,
@@ -180,18 +173,19 @@ function delay(time) {
   await delay(1000);
 
   await page.click('input[formcontrolname="project_id"]');
-  await delay(500)
+  await delay(500);
   await page.evaluate(() => {
     let elementToClick;
-    const projectNameElements = document.getElementsByClassName('mdc-list-item__primary-text');
+    const projectNameElements = document.getElementsByClassName(
+      "mdc-list-item__primary-text"
+    );
 
     for (const element of projectNameElements) {
-      if (element.innerText === 'geu-ip-edw-migration-day0') {
-        elementToClick = element
+      if (element.innerText === "geu-ip-edw-migration-day0") {
+        elementToClick = element;
         break;
       }
     }
-
 
     if (elementToClick) {
       elementToClick.click();
@@ -199,7 +193,6 @@ function delay(time) {
       console.error("Project name we are searching for not found.");
     }
   });
-
 
   const inputField = await page.$(
     'input[placeholder="Please enter bucket name"]'
@@ -232,9 +225,12 @@ function delay(time) {
       "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c13-2 mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored"
     )[0];
 
-    console.log("Drop down elemetns ",document.getElementsByClassName(
-      "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c14-17 mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored"
-    ))
+    console.log(
+      "Drop down elemetns ",
+      document.getElementsByClassName(
+        "mat-mdc-input-element mat-mdc-autocomplete-trigger ng-tns-c14-17 mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored"
+      )
+    );
 
     console.log("in the drop down selection part");
     if (element) {
@@ -248,7 +244,6 @@ function delay(time) {
   // Wait for a short time (if needed) to allow the dropdown to appear and the next element to be available
 
   // Execute the second JavaScript code within the page context after clicking the first element
-  
 
   await delay(1000);
 
@@ -336,5 +331,4 @@ function delay(time) {
   console.log({ isDisabled }, "3");
 
   schemaMigrationProcess(page);
-
 })();

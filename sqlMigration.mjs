@@ -1,4 +1,5 @@
 import { edwModernization } from "./edwModernization.mjs";
+import { schemaMigrationDashboard } from "./schemaMigrationDashboard.mjs";
 
 function delay(time) {
   return new Promise(function (resolve) {
@@ -68,5 +69,7 @@ export const sqlMigration = async (page) => {
   });
   await delay(6000);
 
-  edwModernization(page);
+
+  schemaMigrationDashboard(page);
+  // edwModernization(page);
 };
