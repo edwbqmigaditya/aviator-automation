@@ -86,7 +86,7 @@ def drop_tables_in_dataset(project_id, dataset_id):
 
 # Set your project ID and dataset IDs
 project_id = "geu-ip-edw-migration-day0"
-datasets_to_drop = ["insurance", "retail"]
+datasets_to_drop = ["insurance_db", "retail_db","edw_test"]
 
 
 # Call the function to drop tables in each dataset
