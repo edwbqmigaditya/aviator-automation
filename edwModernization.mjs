@@ -88,95 +88,95 @@ export const edwModernization = async (page) => {
 
   // // this is the upload code for edw excel file
 
-  // const fileInput = await page.$('input[type="file"]');
-  // console.log(fileInput);
-  // const filePath = "./EDW Modernization Template.xlsx"; // Replace with the local file path you want to upload
-  // await fileInput.uploadFile(filePath);
-  // await delay(1000);
+  const fileInput = await page.$('input[type="file"]');
+  console.log(fileInput);
+  const filePath = "./EDW Modernization Template.xlsx"; // Replace with the local file path you want to upload
+  await fileInput.uploadFile(filePath);
+  await delay(1000);
 
-  // const [previewElement] = await page.$x('//span[contains(text(), "Preview")]');
-  // if (previewElement) {
-  //   await previewElement.click();
-  //   console.log("Clicked on the element with 'Preview' as inner text.");
-  // } else {
-  //   console.error("Element with 'Preview' not found.");
-  // }
+  const [previewElement] = await page.$x('//span[contains(text(), "Preview")]');
+  if (previewElement) {
+    await previewElement.click();
+    console.log("Clicked on the element with 'Preview' as inner text.");
+  } else {
+    console.error("Element with 'Preview' not found.");
+  }
 
-  // await delay(3000);
-  // await page.evaluate(() => {
-  //   const button = document.getElementsByClassName(
-  //     "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-  //   )[0];
+  await delay(3000);
+  await page.evaluate(() => {
+    const button = document.getElementsByClassName(
+      "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+    )[0];
 
-  //   if (button) button.click();
-  // });
-  // await delay(5000);
-
-  // await page.evaluate(() => {
-  //   const button = document.getElementsByClassName(
-  //     "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
-  //   )[0];
-
-  //   if (button) button.click();
-  // });
-
-
-
+    if (button) button.click();
+  });
+  await delay(5000);
 
   await page.evaluate(() => {
-    const button = document.getElementsByClassName("mdc-switch__track")[0]
+    const button = document.getElementsByClassName(
+      "right-icon next button mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+    )[0];
 
     if (button) button.click();
   });
 
-  const translateButtonSelector = await page.$x('//span[contains(text(), "Translate")]');
-  if (translateButtonSelector.length > 0) {
-    await translateButtonSelector[0].click();
-  } else {
-    console.error('Button with specified inner text not found.');
-  }
-
-  const validateQueryEDWButton = await page.$x('//span[contains(text(), "Validate Query")]');
-  if (validateQueryEDWButton.length > 0) {
-    await validateQueryEDWButton[0].click();
-  } else {
-    console.error('Button with specified inner text not found.');
-  }
 
 
 
+  // await page.evaluate(() => {
+  //   const button = document.getElementsByClassName("mdc-switch__track")[0]
 
+  //   if (button) button.click();
+  // });
 
-  const validateDataSourceButton = await page.$x('//span[contains(text(), "Validate Source Dataset")]');
-  if (validateDataSourceButton.length > 0) {
-    await validateDataSourceButton[0].click();
-  } else {
-    console.error('Button with specified inner text not found.');
-  }
+  // const translateButtonSelector = await page.$x('//span[contains(text(), "Translate")]');
+  // if (translateButtonSelector.length > 0) {
+  //   await translateButtonSelector[0].click();
+  // } else {
+  //   console.error('Button with specified inner text not found.');
+  // }
+
+  // const validateQueryEDWButton = await page.$x('//span[contains(text(), "Validate Query")]');
+  // if (validateQueryEDWButton.length > 0) {
+  //   await validateQueryEDWButton[0].click();
+  // } else {
+  //   console.error('Button with specified inner text not found.');
+  // }
 
 
 
 
 
-
-  const confirmEDWButton = await page.$x('//span[contains(text(), "Confirm")]');
-  if (confirmEDWButton.length > 0) {
-    await confirmEDWButton[0].click();
-  } else {
-    console.error('Button with specified inner text not found.');
-  }
+  // const validateDataSourceButton = await page.$x('//span[contains(text(), "Validate Source Dataset")]');
+  // if (validateDataSourceButton.length > 0) {
+  //   await validateDataSourceButton[0].click();
+  // } else {
+  //   console.error('Button with specified inner text not found.');
+  // }
 
 
 
 
 
 
-  const modernizeEDWButton = await page.$x('//span[contains(text(), "Modernize")]');
-  if (modernizeEDWButton.length > 0) {
-    await modernizeEDWButton[0].click();
-  } else {
-    console.error('Button with specified inner text not found.');
-  }
+  // const confirmEDWButton = await page.$x('//span[contains(text(), "Confirm")]');
+  // if (confirmEDWButton.length > 0) {
+  //   await confirmEDWButton[0].click();
+  // } else {
+  //   console.error('Button with specified inner text not found.');
+  // }
+
+
+
+
+
+
+  // const modernizeEDWButton = await page.$x('//span[contains(text(), "Modernize")]');
+  // if (modernizeEDWButton.length > 0) {
+  //   await modernizeEDWButton[0].click();
+  // } else {
+  //   console.error('Button with specified inner text not found.');
+  // }
 
 
   await delay(3000);
