@@ -1,0 +1,38 @@
+{
+  "cookies": [
+    {
+      "name": "G_AUTHUSER_H",
+      "value": "0",
+      "domain": ".geu-ip-edw-assessment-day0.ue.r.appspot.com",
+      "path": "/",
+      "expires": -1,
+      "size": 13,
+      "httpOnly": false,
+      "secure": true,
+      "session": true,
+      "sameParty": false,
+      "sourceScheme": "Secure",
+      "sourcePort": 443
+    },
+    {
+      "name": "G_ENABLED_IDPS",
+      "value": "google",
+      "domain": ".geu-ip-edw-assessment-day0.ue.r.appspot.com",
+      "path": "/",
+      "expires": 1738928698.710436,
+      "size": 20,
+      "httpOnly": false,
+      "secure": true,
+      "session": false,
+      "sameParty": false,
+      "sourceScheme": "Secure",
+      "sourcePort": 443
+    }
+  ],
+  "localStorageData": {
+    "orgs": "[]",
+    "user": "{\"id\":\"101564928290328165730\",\"email\":\"aditya.alkhaniya@hcl.com\",\"verified_email\":true,\"name\":\"Aditya Alkhaniya\",\"given_name\":\"Aditya\",\"family_name\":\"Alkhaniya\",\"picture\":\"https://lh3.googleusercontent.com/a/ACg8ocLpQsoXnQqAVrdXm7OUH9vEi9b9__Y4MEfoPkW_ar9f=s96-c\",\"locale\":\"en\",\"hd\":\"hcl.com\"}",
+    "prjs": "[{\"projectNumber\":\"996825917807\",\"projectId\":\"geu-ip-edw-migration-day0\",\"lifecycleState\":\"ACTIVE\",\"name\":\"geu-ip-edw-migration-day0\",\"createTime\":\"2023-01-06T14:36:50.627Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"92126689902\",\"projectId\":\"geu-ip-edw-assessment-day0\",\"lifecycleState\":\"ACTIVE\",\"name\":\"geu-ip-edw-assessment-day0\",\"createTime\":\"2023-01-06T14:35:52.753Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"130551324266\",\"projectId\":\"alkhaniya-project\",\"lifecycleState\":\"ACTIVE\",\"name\":\"alkhaniya-Project\",\"createTime\":\"2022-02-07T10:32:13.490Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}},{\"projectNumber\":\"289649376723\",\"projectId\":\"gebu-data-ml-day0-01-333910\",\"lifecycleState\":\"ACTIVE\",\"name\":\"gebu-data-ml-day0-01\",\"labels\":{\"coe\":\"gcp_billing\",\"firebase\":\"enabled\"},\"createTime\":\"2021-12-02T10:18:11.956Z\",\"parent\":{\"type\":\"organization\",\"id\":\"109230371209\"}}]",
+    "OAUTH": "{\"id\":\"101564928290328165730\",\"name\":\"Aditya Alkhaniya\",\"email\":\"aditya.alkhaniya@hcl.com\",\"access_token\":\"ya29.a0AfB_byCH9uWd87RaWD6M4mpaWjyVd1FhTSsBlS4i9QPJynIdb6Wln_iNvunb-CdLHWQKBnjhXJZsrJ_l24d9Qwd3vmPtVsWrMdggFp8J0MVODeqv-Zk4L9HXi2sn4TtXHrpYv5fqPHBBlaJwLDsdf2CCEg9gkm8gDw_YaCgYKAZsSARISFQHGX2MiYGWBxn5xdSbnuisCvpk1og0171\",\"expires_at\":1704372335198,\"expires_in\":3599}"
+  }
+}
